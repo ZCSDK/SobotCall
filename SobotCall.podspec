@@ -12,7 +12,7 @@ DESC
 
   spec.license      = "MIT"
 
-  spec.author       = { "Zh li" => "app_dev@sobot.com" }
+  spec.author       = { 'zhangxy' => 'app_dev@sobot.com' }
 
   spec.platform     = :ios, "9.0"
 
