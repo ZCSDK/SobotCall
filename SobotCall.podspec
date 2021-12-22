@@ -5,7 +5,7 @@ Pod::Spec.new do |spec|
   spec.version      = "0.0.1"
   spec.summary      = "sobot_call_sdk."
   spec.description      = <<-DESC
- sobot_call_sdk.
+ sobot_call_sdk for voip call.
 DESC
 
   spec.homepage     = "https://github.com/ZCSDK/SobotCall"
