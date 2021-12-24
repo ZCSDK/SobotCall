@@ -15,6 +15,9 @@ DESC
   s.author       = { 'zhangxy' => 'app_dev@sobot.com' }
 
   s.platform     = :ios, "9.0"
+  
+  #依赖库不支持i386
+  s.pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64 armv7 armv7s x86_64' }
 
   s.source       = { :git => "https://github.com/ZCSDK/SobotCall.git", :tag => s.version }
 
