@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SobotCall"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "sobot_call_sdk."
   s.description      = <<-DESC
  sobot_call_sdk for voip call.
