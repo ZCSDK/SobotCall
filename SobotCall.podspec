@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SobotCall"
-  s.version      = "0.0.2.1"
+  s.version      = "1.0.0"
   s.summary      = "sobot_call_sdk."
   s.description      = <<-DESC
  sobot_call_sdk for voip call.
@@ -18,6 +18,8 @@ DESC
   
   #依赖库不支持i386
   s.pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64 armv7 x86_64' }
+
+  #s.user_target_xcconfig = {'OTHER_LDFLAGS' => ['-lObjC','-all_load']}
 
   s.source       = { :git => "https://github.com/ZCSDK/SobotCall.git", :tag => s.version }
 
