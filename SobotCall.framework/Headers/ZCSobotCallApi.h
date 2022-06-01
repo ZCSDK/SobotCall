@@ -6,7 +6,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SobotPhoneUtils.h"
 #import "SobotCallInfo.h"
 #import "SCUIConfig.h"
 
@@ -20,7 +19,7 @@ typedef NS_ENUM(NSInteger,SCCallType) {
 
 
 typedef NS_ENUM(NSInteger, SobotVoipCallListenerState) {
-    SobotVoipCallListenerStateDefault   = 0,
+//    SobotVoipCallListenerStateDefault   = 0,
     SobotVoipCallListenerStateConnected = 1,
     SobotVoipCallListenerStateRegister  = 2, // 注册
     SobotVoipCallListenerStateClosed    = 3, // 关闭
@@ -36,7 +35,7 @@ typedef NS_ENUM(NSInteger, SobotVoipCallListenerState) {
 
 
 
-@interface ZCSobotCallApi : NSObject<SobotPhoneUtilsDelegate>
+@interface ZCSobotCallApi : NSObject
 
 /**
  *  UI配置类
@@ -56,7 +55,7 @@ typedef NS_ENUM(NSInteger, SobotVoipCallListenerState) {
  * 通过token登录
  *
  * @param sobotCallInfo          语音电话的启动配置信息，不可为空
- * @param access_token  token
+ * @param access_token  token    可选，如果您已获取到token 请传入该参数值，如您未获取SDK内部会先调用获取token接口再去登录
  * @param sobotCallListenBlock  登录回调
  */
 -(void)loginWithTokenWithCallInfo:(SobotCallInfo*)sobotCallInfo
@@ -66,38 +65,30 @@ typedef NS_ENUM(NSInteger, SobotVoipCallListenerState) {
 /**
  * 登录
  *
- * @param callInfo          语音电话的启动配置信息，不可为空
+ * @param sobotCallInfo          语音电话的启动配置信息，不可为空
  * @param sobotCallListenBlock  登录回调
 */
--(void)loginWithSobotCallInfo:(SobotCallInfo*)callInfo
+-(void)loginWithSobotCallInfo:(SobotCallInfo*)sobotCallInfo
     sobotCallListenBlock:(void (^)(id object))sobotCallListenBlock;
-
-
-/**
- * 启动SDK
- * @param info 配置信息
- * @param sobotCallListenBlock 启动结果的回调
- */
--(void)startCallWithCallInfo:(SobotCallInfo *)info sobotCallListenBlock:(void (^)(id object))sobotCallListenBlock;
    
 
 /**
  * 发起通话
- *
- * @param sobotCallInfo    语音电话的启动配置信息，不可为空
+ * 该方法需在登录成功之后使用
  * @param userPhoneNumber 用户的电话号, 不能为空
- * @param userNick    用户的昵称 不可为空
+ * @param userNick    用户的昵称 可为空
+ * @param callBlock  呼叫回调
  */
--(void)startCallWithPhoneNumber:(NSString *)userPhoneNumber userNick:(NSString *)userNick sobotCallInfo:(SobotCallInfo*)sobotCallInfo;
+-(void)startCallWithPhoneNumber:(NSString *)userPhoneNumber userNick:(NSString *)userNick callBlock:(void (^)(id object))callBlock;
 
 /**
  * 跳转到拨号界面
- *
- * @param sobotCallInfo        语音电话的启动配置信息，不可为空
+ * 该方法需在登录成功之后使用
  * @param userPhoneNumber 用户的电话号,可为空,有值的话会自动带入到拨号界面
  * @param userNick        用户的昵称,可为空，有值的话会自动带入到拨号界面
+ * @param callBlock  呼叫回调
 */
--(void)openCallPhoneNumberWithPhoneNumber:(NSString *)userPhoneNumber userNick:(NSString *)userNick sobotCallInfo:(SobotCallInfo*)sobotCallInfo;
+-(void)openCallPhoneNumberWithPhoneNumber:(NSString *)userPhoneNumber userNick:(NSString *)userNick callBlock:(void (^)(id object))callBlock;
 
 /**
  *   监听通话状态的变化
@@ -109,9 +100,8 @@ typedef NS_ENUM(NSInteger, SobotVoipCallListenerState) {
 /**
  * 离线退出
  *
- * @param callInfo 语音电话的启动配置信息，不可为空
  */
-- (void)exitSobotCallWithSobotCallInfo:(SobotCallInfo*)callInfo;
+- (void)exitSobotCall:(void (^)(id object))exitBlock;
 
 /**
  *   获取配置类
@@ -156,6 +146,14 @@ typedef NS_ENUM(NSInteger, SobotVoipCallListenerState) {
  *
  */
 -(void)sobotCallWithNumber:(NSString *)phoneNumber resultBlock:(void(^)(BOOL result))resultBlock;
+
+
+/**
+ * 启动SDK
+ * @param info 配置信息
+ * @param sobotCallListenBlock 启动结果的回调
+ */
+//-(void)startCallWithCallInfo:(SobotCallInfo *)info sobotCallListenBlock:(void (^)(id object))sobotCallListenBlock;
 
 @end
 
