@@ -1,0 +1,6 @@
+framework module SobotCallSDK {
+  umbrella header "SobotCallSDK.h"
+
+  export *
+  module * { export * }
+}
