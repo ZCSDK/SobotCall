@@ -24,7 +24,7 @@ DESC
   s.source       = { :git => "https://github.com/ZCSDK/SobotCall.git", :tag => s.version }
 
   s.resources = 'SobotCall.bundle'
-  s.ios.vendored_frameworks = 'SobotCall.framework','Dependent/bctoolbox.framework','Dependent/belcard.framework','Dependent/belr.framework','Dependent/linphone.framework','Dependent/linphonetester.framework','Dependent/mediastreamer2.framework','Dependent/msamr.framework','Dependent/mscodec2.framework','Dependent/msopenh264.framework','Dependent/mssilk.framework','Dependent/mswebrtc.framework','Dependent/msx264.framework','Dependent/ortp.framework','Dependent/WebRTC.framework'
+  s.ios.vendored_frameworks = 'SobotCallSDK.framework','Dependent/bctoolbox.framework','Dependent/belcard.framework','Dependent/belr.framework','Dependent/linphone.framework','Dependent/linphonetester.framework','Dependent/mediastreamer2.framework','Dependent/msamr.framework','Dependent/mscodec2.framework','Dependent/msopenh264.framework','Dependent/mssilk.framework','Dependent/mswebrtc.framework','Dependent/msx264.framework','Dependent/ortp.framework','Dependent/WebRTC.framework'
 
   s.dependency 'SobotCommon','2.0.0'
 
