@@ -14,7 +14,7 @@
 		</data>
 		<key>Frameworks/bctoolbox.framework/bctoolbox</key>
 		<data>
-		Hz1+LdJ/eOBKcWkCdcg6mF6GfUo=
+		K6D3hOL3PhzUQF9717fpjxlqbSU=
 		</data>
 		<key>Frameworks/belcard.framework/Info.plist</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Frameworks/belcard.framework/belcard</key>
 		<data>
-		ATVBqT/0VyPH8bnpEPl8DlN8QFc=
+		zoBt6kDgf/0UGanFc5ASPtFPx9s=
 		</data>
 		<key>Frameworks/belcard.framework/vcard_grammar</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Frameworks/belr.framework/belr</key>
 		<data>
-		zXv76uO0pdiu5r9b3xJ4bcxElyc=
+		vY1348rVb0G9GpGCA0WJI+WiMbM=
 		</data>
 		<key>Frameworks/linphone.framework/Info.plist</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Frameworks/linphone.framework/linphone</key>
 		<data>
-		nyPxMtKjy59SnHcfq0riX25TQNg=
+		6bHMSUIcsIkQug23Gkco0YoiZ0I=
 		</data>
 		<key>Frameworks/linphone.framework/rootca.pem</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>Frameworks/linphonetester.framework/linphonetester</key>
 		<data>
-		PzWe1TYpB/p1DI0mkVX9tFB8Ft0=
+		yqagZPjBajV7Ydsv1/S7MT6mJLM=
 		</data>
 		<key>Frameworks/mediastreamer2.framework/Info.plist</key>
 		<data>
@@ -86,7 +86,7 @@
 		</data>
 		<key>Frameworks/mediastreamer2.framework/mediastreamer2</key>
 		<data>
-		l9TmIrxnozA+Tfz6n/jIkaPKj5k=
+		WBzHmUEorYCQTuBbsajxVXvBRhA=
 		</data>
 		<key>Frameworks/msamr.framework/Info.plist</key>
 		<data>
@@ -98,7 +98,7 @@
 		</data>
 		<key>Frameworks/msamr.framework/msamr</key>
 		<data>
-		2ApCGV08Zo8BM/P8PTAOHiUWQUU=
+		z0omJVQ4i6WGlkyWmtsGMPG4YRA=
 		</data>
 		<key>Frameworks/mscodec2.framework/Info.plist</key>
 		<data>
@@ -110,7 +110,7 @@
 		</data>
 		<key>Frameworks/mscodec2.framework/mscodec2</key>
 		<data>
-		+hC/M9wBT62peN1B8LsRFkHRK9o=
+		HsUNsKjzzRNDNsjvfJK3q56MISI=
 		</data>
 		<key>Frameworks/msopenh264.framework/Info.plist</key>
 		<data>
@@ -122,7 +122,7 @@
 		</data>
 		<key>Frameworks/msopenh264.framework/msopenh264</key>
 		<data>
-		hFMmFJRT1jkmAzDiJfUIi1703ko=
+		bPyeD1YkQ4a86sK8wrJndhr78E4=
 		</data>
 		<key>Frameworks/mssilk.framework/Info.plist</key>
 		<data>
@@ -134,7 +134,7 @@
 		</data>
 		<key>Frameworks/mssilk.framework/mssilk</key>
 		<data>
-		Pq13ujvKVnsC0Eb+shiuNnD5Mc4=
+		Y8B4SQ9iM5c8VzuRzJ6/isxR1Ks=
 		</data>
 		<key>Frameworks/mswebrtc.framework/Info.plist</key>
 		<data>
@@ -146,7 +146,7 @@
 		</data>
 		<key>Frameworks/mswebrtc.framework/mswebrtc</key>
 		<data>
-		1POMzPg9dWp2XFgOjqCIKr5NtVE=
+		BL6lxUg6di+H9kuVlSc/hbjMp20=
 		</data>
 		<key>Frameworks/msx264.framework/Info.plist</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>Frameworks/msx264.framework/msx264</key>
 		<data>
-		y5PqHh+Y7M4kcDIEg6BMX5AxhJU=
+		JLuuV+AmGVEvRdO9mmUIx9YRk54=
 		</data>
 		<key>Frameworks/ortp.framework/Info.plist</key>
 		<data>
@@ -170,7 +170,7 @@
 		</data>
 		<key>Frameworks/ortp.framework/ortp</key>
 		<data>
-		fCnZnbMdhGjSLVeKWh4Px3HODgw=
+		GnHo9fSZpHVpscFyAeMuu55ZVZQ=
 		</data>
 		<key>Headers/SobotCallAgentEntity.h</key>
 		<data>
@@ -190,7 +190,7 @@
 		</data>
 		<key>Headers/SobotCallCacheEntity.h</key>
 		<data>
-		TR6KLHxoFgKqA0+HpkCPucbR/ro=
+		/70J2mj6Vb9UPUNZjJiVKIA7lmQ=
 		</data>
 		<key>Headers/SobotCallClient.h</key>
 		<data>
@@ -278,7 +278,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		EKwgTIpJlkhaQtGr+KdSx3/fLFw=
+		jFYpP6/SsIbe9DAUaZS3Nh1I1i4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -313,11 +313,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Hz1+LdJ/eOBKcWkCdcg6mF6GfUo=
+			K6D3hOL3PhzUQF9717fpjxlqbSU=
 			</data>
 			<key>hash2</key>
 			<data>
-			AjwcpFJ8+bfjB9ruGvmvnO6vuDXB0XE9kn3SqpeVpNk=
+			5UcC4BqGdYS0BrGrjIjK8qXHxB74TF9LPHEBU9J764I=
 			</data>
 		</dict>
 		<key>Frameworks/belcard.framework/Info.plist</key>
@@ -346,11 +346,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ATVBqT/0VyPH8bnpEPl8DlN8QFc=
+			zoBt6kDgf/0UGanFc5ASPtFPx9s=
 			</data>
 			<key>hash2</key>
 			<data>
-			XcRXGtwZ0VzcSurETDS+fMHdv6yO1Qxgys3euAHLC0g=
+			XRZ9UDuBWBfo87TO9N5us9zlHxrrsiQITL8bGZSRP8U=
 			</data>
 		</dict>
 		<key>Frameworks/belcard.framework/vcard_grammar</key>
@@ -390,11 +390,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zXv76uO0pdiu5r9b3xJ4bcxElyc=
+			vY1348rVb0G9GpGCA0WJI+WiMbM=
 			</data>
 			<key>hash2</key>
 			<data>
-			SVDuhqpfYnppd/bQ1gKE/Pwb+GU94YJyTXjHBN54kjI=
+			0fWfkh3hkTyj0K7VYVUwOzBzbXvoSfcz9p7eTW42EfQ=
 			</data>
 		</dict>
 		<key>Frameworks/linphone.framework/Info.plist</key>
@@ -434,11 +434,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nyPxMtKjy59SnHcfq0riX25TQNg=
+			6bHMSUIcsIkQug23Gkco0YoiZ0I=
 			</data>
 			<key>hash2</key>
 			<data>
-			1WtIcXfytRnAABOPQ0jcEuQimyKkW7tUmZVsyidXVzQ=
+			uWOSQ9sIx1rjEY1OZvRDnNb2Ggk5Mgw8KgkoEbQ2D2U=
 			</data>
 		</dict>
 		<key>Frameworks/linphone.framework/rootca.pem</key>
@@ -478,11 +478,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			PzWe1TYpB/p1DI0mkVX9tFB8Ft0=
+			yqagZPjBajV7Ydsv1/S7MT6mJLM=
 			</data>
 			<key>hash2</key>
 			<data>
-			9+LqftnXTwAkdTHpfLIhwqhG/06/n7cqBB9A54Yumdg=
+			ZwOFEdgknWPgIsSwNNO5RaoPdRlb2eNPe6FWTs2Gkew=
 			</data>
 		</dict>
 		<key>Frameworks/mediastreamer2.framework/Info.plist</key>
@@ -511,11 +511,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			l9TmIrxnozA+Tfz6n/jIkaPKj5k=
+			WBzHmUEorYCQTuBbsajxVXvBRhA=
 			</data>
 			<key>hash2</key>
 			<data>
-			h5hcCPHtQUf3a99sR9NrKg6+Q3rnsvImzDonDntWbLE=
+			7MG8a2ii5UnQ9GgYGYEeHPyIxPsc7LXMJo0LQRv/UeM=
 			</data>
 		</dict>
 		<key>Frameworks/msamr.framework/Info.plist</key>
@@ -544,11 +544,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2ApCGV08Zo8BM/P8PTAOHiUWQUU=
+			z0omJVQ4i6WGlkyWmtsGMPG4YRA=
 			</data>
 			<key>hash2</key>
 			<data>
-			94vUxxgcZV+Ysw8YMxh9nURuIMLSxM2YCeWpFEstUqA=
+			dQ1Nk90M5QZjpZIZ9Jidm0Gq3liB2QLdGfLNKcv8up4=
 			</data>
 		</dict>
 		<key>Frameworks/mscodec2.framework/Info.plist</key>
@@ -577,11 +577,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+hC/M9wBT62peN1B8LsRFkHRK9o=
+			HsUNsKjzzRNDNsjvfJK3q56MISI=
 			</data>
 			<key>hash2</key>
 			<data>
-			BlN59lzVt3oPFkxWTRBjkG1eHMoZTd19yv7KWNhDBjo=
+			7quqOBf/n4SVnugYRomcmiVgzve8/AYhAuFnDLs/rfM=
 			</data>
 		</dict>
 		<key>Frameworks/msopenh264.framework/Info.plist</key>
@@ -610,11 +610,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hFMmFJRT1jkmAzDiJfUIi1703ko=
+			bPyeD1YkQ4a86sK8wrJndhr78E4=
 			</data>
 			<key>hash2</key>
 			<data>
-			TWO+FwNzcM3mk6Df5WlLhQHq4qfztIFAwwxLTD7dNMc=
+			ZRriwkZTisAZrgc8P7zSFKOhz5mgWbF5E80fIveBkdA=
 			</data>
 		</dict>
 		<key>Frameworks/mssilk.framework/Info.plist</key>
@@ -643,11 +643,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Pq13ujvKVnsC0Eb+shiuNnD5Mc4=
+			Y8B4SQ9iM5c8VzuRzJ6/isxR1Ks=
 			</data>
 			<key>hash2</key>
 			<data>
-			kHsa19orzYWumftC4p8J5WEUmsDmBPdylW4s0xlqjPw=
+			3BcZ08veblWA5Uz42DEeyUUlvHp/n2BNG18lPeqw+OQ=
 			</data>
 		</dict>
 		<key>Frameworks/mswebrtc.framework/Info.plist</key>
@@ -676,11 +676,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1POMzPg9dWp2XFgOjqCIKr5NtVE=
+			BL6lxUg6di+H9kuVlSc/hbjMp20=
 			</data>
 			<key>hash2</key>
 			<data>
-			0smW/5pcHxKrXb/y4weTK354zX0c4c49EGJACPH8gHg=
+			l7grhIVaLEHyQXagSBUuM7nQziuD1HSIf/WrUALAzVQ=
 			</data>
 		</dict>
 		<key>Frameworks/msx264.framework/Info.plist</key>
@@ -709,11 +709,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			y5PqHh+Y7M4kcDIEg6BMX5AxhJU=
+			JLuuV+AmGVEvRdO9mmUIx9YRk54=
 			</data>
 			<key>hash2</key>
 			<data>
-			oR7bO43xma1hlEUYkh5OeJvLWy1213lSeIltzXzFFAk=
+			eEf5F2+gIkbVwJ6He7PoPrkHskt5N7U7ab99YqjNsbc=
 			</data>
 		</dict>
 		<key>Frameworks/ortp.framework/Info.plist</key>
@@ -742,11 +742,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fCnZnbMdhGjSLVeKWh4Px3HODgw=
+			GnHo9fSZpHVpscFyAeMuu55ZVZQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			P8sKykXiU9gAxdCjbKt8xvzwSiQnzVlP8VQAU2Euf7w=
+			FmbJyl/qiH22IuTSgwZgehXJ8rr/KM0iOJVxe9/245o=
 			</data>
 		</dict>
 		<key>Headers/SobotCallAgentEntity.h</key>
@@ -797,11 +797,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			TR6KLHxoFgKqA0+HpkCPucbR/ro=
+			/70J2mj6Vb9UPUNZjJiVKIA7lmQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			rJzdP2xpmI+c/Jfb4GOZo/t3nwXZLIteAT2IMbB8AXE=
+			jm/2XPajeqQXpqeDvE/jwy3k5Wv5NIGGkSsFL+pTc9w=
 			</data>
 		</dict>
 		<key>Headers/SobotCallClient.h</key>

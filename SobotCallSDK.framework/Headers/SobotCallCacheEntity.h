@@ -14,11 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 // 获取公共接口域名, 默认：https://api.sobot.com 
 @property(nonatomic,strong) NSString *openApiHost;
 
-// 呼叫接口域名，默认：https://openapi.soboten.com
+// 呼叫接口域名，默认：https://openapi.sobot.com
 @property(nonatomic,strong) NSString *callApiHost;
 
 
-// 监听呼叫消息uri，默认：wss://openapi.soboten.com/v6.0.0/webmsg/cc-webmsg
+// 监听呼叫消息uri，默认：wss://openapi.sobot.com/v6.0.0/webmsg/cc-webmsg
 @property(nonatomic,strong) NSString *stompSocketUri;
 
 
