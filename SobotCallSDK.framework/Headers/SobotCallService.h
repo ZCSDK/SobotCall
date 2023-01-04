@@ -145,6 +145,33 @@ success:(__nullable NetworkResultBlock )successBlock failed:(__nullable NetworkR
                  startBlock:(void(^)(NSString *urlString)) startBlock
                     success:(__nullable NetworkResultBlock )successBlock
                      failed:(__nullable NetworkResultBlock )failedBlock;
+
+
+///  重连恢复话务状态
+/// @param simpSessionId simpSessionId description
+/// @param currentInstanceId currentInstanceId description
+/// @param startBlock startBlock description
+/// @param successBlock successBlock description
+/// @param failedBlock failedBlock description
++(void)getRecoverAgentStatus:(NSString *)simpSessionId
+               currentInstanceId:(NSString *)currentInstanceId
+                      startBlock:(void(^)(NSString *urlString)) startBlock
+                         success:(__nullable NetworkResultBlock )successBlock
+                          failed:(__nullable NetworkResultBlock )failedBlock;
+
+
+///  重连回复坐席状态
+/// @param simpSessionId simpSessionId description
+/// @param currentInstanceId currentInstanceId description
+/// @param startBlock startBlock description
+/// @param successBlock successBlock description
+/// @param failedBlock failedBlock description
++(void)getRecoverAgentCallStatus:(NSString *)simpSessionId
+               currentInstanceId:(NSString *)currentInstanceId
+                      startBlock:(void(^)(NSString *urlString)) startBlock
+                         success:(__nullable NetworkResultBlock )successBlock
+                          failed:(__nullable NetworkResultBlock )failedBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

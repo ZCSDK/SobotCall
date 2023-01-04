@@ -80,6 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSMutableArray *statusArray;
 @property (nonatomic,strong) NSMutableArray *sipAccoutArray;
 
+@property (nonatomic,strong) NSString *name;
 
 -(NSString *) getAgentStatusStr:(BOOL ) isV6;
 @end

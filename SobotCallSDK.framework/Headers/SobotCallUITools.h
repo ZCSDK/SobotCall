@@ -24,8 +24,15 @@ typedef NS_ENUM(NSUInteger, SobotCallUIToolsSipType) {
 #define SOBOT_CALL_INCOMMING @"CALLIncomming"
 #define SOBOT_CALL_CLOSED @"CALLClosed"
 
+// 使用是添加”_客户账号“
+#define SOBOT_CALL_SUPPORTVERSION @"SobotSupportCallVersion"
+#define SOBOT_CALL_V1VersionKey @"v1"
+#define SOBOT_CALL_V6VersionKey @"v6"
+
 NS_ASSUME_NONNULL_BEGIN
 typedef void(^SobotCallUIResultBlock)(SobotCallNetworkCode code,id _Nullable obj,NSDictionary *_Nullable dict,NSString *_Nullable jsonString);
+
+typedef void(^SobotCallStatusUpdateBlock)(SobotCallNetworkCode code,int agentState,NSString *_Nullable reasonCode,NSString *_Nullable dict);
 
 typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString *_Nullable jsonString); // sip话机代理事件
 
@@ -34,6 +41,9 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 @property(nonatomic,assign) BOOL sipIsLogin;// 记录SIP话机是否已经登录成功，如果登录成功了，就不在将注册成功的信息回调
 
 @property (nonatomic,strong) SobotCallUISipResultBlock sipResultBlock;
+
+
+@property (nonatomic,strong) SobotCallStatusUpdateBlock callstatusUpdateBlock;
 
 
 +(SobotCallUITools *)shareSobotCallUITools;
@@ -58,6 +68,7 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 // 登录时判断是否注册过
 -(BOOL)isRegisteredWithCallWay:(int)callWay;
 
+-(SobotCallingView*)getSobotCallView;
 #pragma mark -- linphone end
 
 
@@ -71,7 +82,7 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 -(SobotCallingView *)showCallingView:(SobotCallingType) type callNumber:(NSString *)number displayNumber:(NSString *) displayNumber  hiddenFlag:(int )scanFtype autoShow:(BOOL) isAutoShow;
 
 
-
+-(SobotCallingView *)showCallingView:(SobotCallingType) type callNumber:(NSString *)number displayNumber:(NSString *) displayNumber  hiddenFlag:(int )scanFtype autoShow:(BOOL) isAutoShow callModel:(id)callModel;
 
 /// 当前是否为v6版本
 +(BOOL) isSupportV6;

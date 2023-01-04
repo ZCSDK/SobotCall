@@ -12,6 +12,7 @@
 #import <SobotCallSDK/SobotCallCache.h>
 #import <SobotCallSDK/SobotCallLoginInfo.h>
 #import <SobotCallSDK/SobotCallHomeController.h>
+#import <SobotCallSDK/SobotCallUITools.h>
 
 //! Project version number for SobotCallSDK.
 FOUNDATION_EXPORT double SobotCallSDKVersionNumber;

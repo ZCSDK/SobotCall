@@ -39,12 +39,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(instancetype)initWithCallingView:(SobotCallingType) type callNumber:(NSString *) number hiddenFlag:(int) hiddenFlag;
 
+-(void)handUp;
+
 - (void)show;
 
 - (void)dissmisMenu;
 
 // linphone 对方接电话了
 -(void)linphoneCallEventEstablished;
+
+// 开始接听计时
+-(void)startCallingTimer;
+
+// 暂停计时
+-(void)pauseCallingTimer;
+
 @end
 
 NS_ASSUME_NONNULL_END

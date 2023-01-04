@@ -25,6 +25,9 @@ typedef void(^SobotCallListenerBlock)(SobotCallListenerState state,id _Nullable 
 
 -(void)onCallStateChanged:(SobotCallListenerState) state objcect:(id _Nullable )obj;
 
+@optional
+-(void)setTabHidde:(BOOL)isHidde;
+
 @end
 
 @interface SobotCallClient : NSObject

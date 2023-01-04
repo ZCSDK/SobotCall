@@ -20,12 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 //NotStarted(1, "NotStarted", "未开始"),
 //    Running(2, "Running", "进行中"),
 //    Pausing(3, "Pausing", "暂停中"),
-//    Expired(4, "Expired", "已过期"),
+//    Closed(4, "Closed", "已关闭"),
 //    Finished(5, "Finished", "已完成"),
 //    Archived(6, "Archived", "已归档"),
 //    Deleted(7, "Deleted", "已删除"),
 //0 未开始  1 已过期  2 执行中
 @property(nonatomic,assign) int state;//": 1,
+@property(nonatomic,assign) int expired;//1
 @property (nonatomic,strong) NSString *stateName;//": 1,
 @property (nonatomic,strong) NSString *wrapUpTemplateName;//": "总结模板222",
 @property (nonatomic,strong) NSString *scheduleStartTime;//": 1660552373160,
@@ -63,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic,strong) NSString *taskStatus;//": 0,
 @property (nonatomic,strong) NSString *taskTimeType;//": 1,
 @property (nonatomic,strong) NSString *updateDateTime;//
-
+@property (nonatomic,assign) int timed;
 
 @property (nonatomic,strong) NSString *callWay;
 @property (nonatomic,strong) NSString *callWay_serverScheme;

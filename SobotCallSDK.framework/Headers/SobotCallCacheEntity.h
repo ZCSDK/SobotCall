@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 获取公共接口域名, 默认：https://api.sobot.com 
 @property(nonatomic,strong) NSString *openApiHost;
 
-// 呼叫接口域名，默认：https://openapi.sobot.com
+// 呼叫接口域名，默认：https://openapi.soboten.com
 @property(nonatomic,strong) NSString *callApiHost;
 
 
@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 // janus 代理服务：默认  sip:192.168.30.68:5060
 @property(nonatomic,strong) NSString *sipProxy;
 
+@property(nonatomic,copy)NSString *clientType;// 如果是SDK SDK接入传 TenIosSdk （默认取SDK值），如果是智齿APP 传SysAppIos
 @end
 
 NS_ASSUME_NONNULL_END

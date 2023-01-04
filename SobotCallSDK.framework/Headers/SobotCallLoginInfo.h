@@ -57,6 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign) BOOL  callDeskFlag;
 @property(nonatomic,assign) BOOL  callLogFlag;
 @property(nonatomic,assign) int callV6Flag;
+@property(nonatomic,assign) int callV1Flag;
 @property(nonatomic,copy) NSString * centerNumber;
 @property(nonatomic,copy) NSString * companyCreateTime;
 @property(nonatomic,copy) NSString * companyId;
