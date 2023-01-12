@@ -29,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) NSString *sipProxy;
 
 @property(nonatomic,copy)NSString *clientType;// 如果是SDK SDK接入传 TenIosSdk （默认取SDK值），如果是智齿APP 传SysAppIos
+
+
+@property(nonatomic,assign)BOOL useOpenApi;
 @end
 
 NS_ASSUME_NONNULL_END

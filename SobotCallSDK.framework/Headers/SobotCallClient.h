@@ -20,6 +20,13 @@ typedef NS_ENUM(NSInteger, SobotCallListenerState) {
 
 typedef void(^SobotCallListenerBlock)(SobotCallListenerState state,id _Nullable obj);// 监听事件
 
+// webscoket的监听事件
+typedef void(^SobotCallOpenWebScoketListenerBlock)(id _Nullable obj,id _Nullable object,id _Nullable msg);
+// sip (janus)的监听事件
+typedef void(^SobotCallOpenSipListenerBlock)(id _Nullable obj,id _Nullable object,id _Nullable msg);
+
+// code == 1成功
+typedef void(^SobotCallResultBlock)(NSInteger code,id _Nullable obj,NSString *_Nullable msg);
 
 @protocol  SobotCallClientDelegate <NSObject>
 
@@ -30,10 +37,23 @@ typedef void(^SobotCallListenerBlock)(SobotCallListenerState state,id _Nullable 
 
 @end
 
+@protocol SobotCallClientOpenDelegate <NSObject>
+
+@optional
+-(void)sobotCallOpenListenerobject:(id _Nullable)obj;
+
+@end
+
 @interface SobotCallClient : NSObject
 
 @property(nonatomic,weak)id <SobotCallClientDelegate>delegate;
 @property (nonatomic,copy) SobotCallListenerBlock callListernerBlock;
+
+@property(nonatomic,weak) id<SobotCallClientOpenDelegate> openDelegate;
+
+@property(nonatomic,copy) SobotCallOpenWebScoketListenerBlock callOpenWebListenerBlock;
+@property(nonatomic,copy) SobotCallOpenSipListenerBlock callOpenSipListenerBlock;
+
 
 +(SobotCallClient *) getSobotCallClient;
 

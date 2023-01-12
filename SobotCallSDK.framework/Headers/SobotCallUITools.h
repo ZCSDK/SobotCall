@@ -94,8 +94,8 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 
 +(void)callOutWithApi:(NSString *) number group:(NSString *)groupId callWay:(int ) callway obj:(nonnull id)taskObj  hiddenNumber:(NSString *)hiddenNumber isAddUserData:(BOOL)isAdd reult:(SobotCallUIResultBlock) resultBlock;
 
-// 首次进入，设置坐席状态
-// 判断版本v1/v6，获取sip，获取坐席状态,obj 为agentStatusEntity对象
+// 首次进入，设置座席状态
+// 判断版本v1/v6，获取sip，获取座席状态,obj 为agentStatusEntity对象
 +(void)configAgentStatus:(SobotCallUIResultBlock) resultBlock;
 
 
@@ -103,12 +103,12 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 +(void)getAllTaskDetailsWithPage:(int)page result:(SobotCallUIResultBlock) resultBlock;
 
 
-/// 查询坐席分机号，数组
+/// 查询座席分机号，数组
 /// @param resultBlock 失败/成功
 +(void)getAgentSipAccount:(SobotCallUIResultBlock) resultBlock;
 
 
-/// 查询坐席所在技能组信息
+/// 查询座席所在技能组信息
 /// @param resultBlock 失败/成功
 +(void)getAgentGroup:(SobotCallUIResultBlock) resultBlock;
  
@@ -124,7 +124,7 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 +(void)getAgentConfigStatusList:(SobotCallUIResultBlock) resultBlock;
 
 
-/// 查询当前坐席状态，轮训,仅v1使用，v6使用SobotCallMessageTools设置回调
+/// 查询当前座席状态，轮训,仅v1使用，v6使用SobotCallMessageTools设置回调
 /// @param resultBlock 成功/失败
 +(void)getAgentCurrentStatus:(SobotCallUIResultBlock) resultBlock;
 
@@ -134,21 +134,21 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 +(void)getAgentPhoneTypes:(SobotCallUIResultBlock) resultBlock;
 
 
-/// 坐席迁出，就是设置离线状态
+/// 座席迁出，就是设置离线状态
 +(void)agentLogOut:(SobotCallUIResultBlock) resultBlock;
 
-/// 坐席迁入，设置状态为非离线
+/// 座席迁入，设置状态为非离线
 /// 2=sip,3pstn手机
 +(void)agentLoginWithCallWay:(int )callWay sip:(SobotCallSipInfo *)info status:(NSString *)agentStatus resultBlock:(SobotCallUIResultBlock) resultBlock;
 
 
-/// 获取账号登录模式，仅支持v1 话机绑定方案  0绑定坐席  1动态绑定(仅支持手机模式)
+/// 获取账号登录模式，仅支持v1 话机绑定方案  0绑定座席  1动态绑定(仅支持手机模式)
 +(void)getCallModelFlagResult:(SobotCallUIResultBlock) resultBlock;
 
 /// 获取注册信息，仅v1使用，和getAgentSipAccount合并
 +(void)getUserSipAccount:(NSString *)customNumber result:(SobotCallUIResultBlock) resultBlock;
 
-/// 设置坐席状态 V1和V6
+/// 设置座席状态 V1和V6
 +(void)setAgentStatus:(NSString *)agentStatus result:(SobotCallUIResultBlock) resultBlock;
 
 
@@ -210,6 +210,26 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 /// @param aor aor
 /// @param resultBlock resultBlock description
 +(void)clearUserBeforeLoginSip:(NSString *)aor result:(SobotCallUIResultBlock) resultBlock;
+
+/// 获取登录用户信息
++(SobotCallLoginInfo *) getLoginUser;
+
+/// 查询座席的外呼路由规则
+/// @param agentID 座席id
+/// @param resultBlock resultBlock description
++(void)postOutboundRoutesAgentId:(NSString *)agentID result:(SobotCallUIResultBlock) resultBlock;
+
+
+/// 切换座席的外呼外显规则
+/// @param explicitRule 外显规则
+/// @param explicitCode 动态外显方案编码
+/// @param explicitNumber 外显号码
+/// @param resultBlock resultBlock description
++(void)postModOutboundRoutesWithExplicitRule:(NSString *)explicitRule
+                                explicitCode:(NSString *)explicitCode
+                              explicitNumber:(NSString *)explicitNumber
+                                     agentId:(NSString *)agentID
+                                 resultBlock:(SobotCallResultBlock)resultBlock;
 @end
 
 NS_ASSUME_NONNULL_END

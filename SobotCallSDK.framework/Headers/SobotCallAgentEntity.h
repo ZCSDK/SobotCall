@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- 呼叫坐席状态信息
+ 呼叫座席状态信息
  */
 @interface SobotCallAgentEntity : SobotBaseEntity
 
@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSString *userhangup;//": "0"
 
 
-@property (nonatomic,strong) NSString *agentNumber;//": "0"  // 获取坐席状态接口中此字段是 代表手机号
+@property (nonatomic,strong) NSString *agentNumber;//": "0"  // 获取座席状态接口中此字段是 代表手机号
 
 //0呼入 1呼出
 @property (nonatomic,strong) NSString *direction;

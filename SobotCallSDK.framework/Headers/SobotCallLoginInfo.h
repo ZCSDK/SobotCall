@@ -127,13 +127,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,assign) BOOL isHiddenNumber;// 是否显示 密文  9999
 
+@property (nonatomic,copy) NSString *openBindExt;//开放接口 签入本地记录
+
+@property (nonatomic,copy) NSString *openBindType;//开放接口 接听方式
+
+@property (nonatomic,copy) NSString *openBingMobile;//绑定的电话号码
+
 // key : SOBOT_CALL_MODULE_KEY_
 -(BOOL)checkModule:(NSString *) key;
 
 -(BOOL)checkModuleByModuleType:(SobotCallModuleType )key;
 
 
-// 坐席呼叫类型信息
+// 座席呼叫类型信息
 @property (nonatomic,strong) SobotCallAgentEntity *agentInfo;
 
 @end

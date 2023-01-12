@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <SobotCallSDK/SobotCallClient.h>
 #import <SobotCallSDK/SobotCallParameter.h>
+#import <SobotCallSDK/SobotCallOpenApi.h>
 
-// code == 1成功
-typedef void(^SobotCallResultBlock)(NSInteger code,id _Nullable obj,NSString *_Nullable msg);
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SobotCallApi : NSObject
