@@ -67,8 +67,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///  设置SobotCall状态监听
 ///   status 外呼的状态
-+(void)setSobotCallListener:(void(^)(SobotCallListenerState status,id _Nullable obj))listenerBlock;
++(void)setSobotCallListener:(void(^)(int code ,SobotCallListenerState state,id _Nullable object,id _Nullable obj,NSString *_Nullable msg))listenerBlock;
 
++(void)unRegister;
 
 @end
 

@@ -12,6 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// code == 1成功
+typedef void(^SobotCallResultBlock)(NSInteger code,id _Nullable obj,NSString *_Nullable msg);
+
 //webstom的消息订阅
 typedef BOOL (^SobotCallApiScribeMessage)(NSString * _Nullable common,NSDictionary *header,NSString *messageId,NSDictionary *content);
 
@@ -52,9 +55,23 @@ typedef BOOL (^SobotCallApiScribeMessage)(NSString * _Nullable common,NSDictiona
 ///查询座席的签入信息 （签入前）
 +(void)queryPhoneType:(SobotCallResultBlock) resultBlock;
 
+
+/// 查询呼叫相关域名
+/// {"apiVersion":"6.0.0","status":"Success","code":200,"message":"请求服务成功","reason":"请求服务成功","kind":"Map","metaData":{},"data":{"stompSocket":"wss://hk.sobot.com/v6.0.0/webmsg/cc-webmsg","janusSocket":"wss://rtc.hk.sobot.cc/sip:10001@Cq5ONZpK.sg.sobot.cc"},"retMsg":"请求服务成功","retCode":"000000"}
+///
+/// 
++(void)queryWebmsgUrls:(SobotCallResultBlock) resultBlock;
+
 /// 查座席可用的分机号 （登录成功后调用）
 /// @param resultBlock 回调结果
 +(void)queryUnusedExts:(SobotCallResultBlock)resultBlock;
+
+
+/// 修改分机号语言编码
+/// @param ext 分机号
+/// @param langCode 编码
+/// @param resultBlock 结果
++(void)updateExtLangCode:(NSString *) ext langCode:(NSString *) langCode result:(SobotCallResultBlock)resultBlock;
 
 
 /// 查询座席状态列表 （登录成功后调用）
@@ -78,6 +95,12 @@ typedef BOOL (^SobotCallApiScribeMessage)(NSString * _Nullable common,NSDictiona
 //##### ● 重置离线(退出登录)
 // 签出
 +(void)logOut:(SobotCallResultBlock)resultBlock;
+
+
+
+/// 重置离线
+/// @param resultBlock 结果
++(void)logResetOut:(SobotCallResultBlock)resultBlock;
 
 /// 置忙
 /// @param reasonCode 置忙原因  、 11：小休；12：小休（培训）；13：小休（会议）；14：小休（用餐）；15：小休（活动）；16：小休（自定义1）；17：小休（自定义2）；18：小休（自定义3）
@@ -193,6 +216,8 @@ typedef BOOL (^SobotCallApiScribeMessage)(NSString * _Nullable common,NSDictiona
                     explicitCode:(NSString *)explicitCode
                   explicitNumber:(NSString *)explicitNumber
                      resultBlock:(SobotCallResultBlock)resultBlock;
+
++(BOOL)getLoginSuccess;
 @end
 
 NS_ASSUME_NONNULL_END

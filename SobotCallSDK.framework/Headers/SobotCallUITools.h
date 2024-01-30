@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "SobotCallService.h"
-#import "SobotCallAgentStatusEntity.h"
-#import "SobotCallSipInfo.h"
+#import <SobotCallLib/SobotCallAgentStatusEntity.h>
+#import <SobotCallLib/SobotCallSipInfo.h>
 #import "SobotCallingView.h"
 #import "SobotCallApi.h"
-#import "SobotCallTaskEntity.h"
+#import <SobotCallLib/SobotCallTaskEntity.h>
+#import "SobotCallingViewV6.h"
+#import <SobotCallLib/SobotCallTaskListContactsEntity.h>
+
+#import <SobotCallSDK/SobotDragView.h>
 
 typedef NS_ENUM(NSUInteger, SobotCallUIToolsSipType) {
     SobotCallUIToolsSipType_RegisterOK, // 注册成功
@@ -32,7 +36,7 @@ typedef NS_ENUM(NSUInteger, SobotCallUIToolsSipType) {
 NS_ASSUME_NONNULL_BEGIN
 typedef void(^SobotCallUIResultBlock)(SobotCallNetworkCode code,id _Nullable obj,NSDictionary *_Nullable dict,NSString *_Nullable jsonString);
 
-typedef void(^SobotCallStatusUpdateBlock)(SobotCallNetworkCode code,int agentState,NSString *_Nullable reasonCode,NSString *_Nullable dict);
+typedef void(^SobotCallStatusUpdateBlock)(SobotCallNetworkCode code,int agentState,NSString *_Nullable reasonCode,id _Nullable dict);
 
 typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString *_Nullable jsonString); // sip话机代理事件
 
@@ -41,18 +45,31 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 @property(nonatomic,assign) BOOL sipIsLogin;// 记录SIP话机是否已经登录成功，如果登录成功了，就不在将注册成功的信息回调
 
 @property (nonatomic,strong) SobotCallUISipResultBlock sipResultBlock;
+@property(nonatomic,copy) NSString *wrapUpDuration;// 整理中时长
 
+@property (nonatomic,assign) int from;// 是否从外呼任务3个列表页面进入的拨号页面
+/*
+ *记录临时数据 如果是从任务列表点击的拨号记录当前的任务model，底部弹窗跳转详情使用（解决因用户手动刷新列表 列表正好没有该数据无法比对的场景）
+ */
+@property (nonatomic,strong) SobotCallTaskListContactsEntity *callEntity;
 
 @property (nonatomic,strong) SobotCallStatusUpdateBlock callstatusUpdateBlock;
 
+@property (nonatomic,strong) SobotCallAgentStatusEntity * _Nullable curStatusEntity;
+
+@property(nonatomic,strong) SobotNetworkObserve *netWorkTools;
+
+@property(nonatomic,strong)NSMutableDictionary *callViewDict;// 记录外呼页面 当前各种状态数据，处理页面缩小在放大后UI刷新不及时的问题
+@property(nonatomic,strong) SobotDragView * _Nullable callTopView;// 通话中的悬浮窗
+@property(nonatomic,strong) SobotDragView * _Nullable callBottomView;// 拨号按钮
+@property(nonatomic,strong)NSMutableArray *statusArray;
 
 +(SobotCallUITools *)shareSobotCallUITools;
 -(void)registeSip:(SobotCallSipInfo *)info resultBlock:(SobotCallUISipResultBlock) resultBlock;
--(void) unRegister;
+-(void)unRegister;
 -(void)hangUpWithApi;
 -(void)answer;
 -(void)answerWithApi;
-
 -(BOOL)isRegistered;
 -(void)startRing;
 -(void)stopRing;
@@ -69,11 +86,26 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 -(BOOL)isRegisteredWithCallWay:(int)callWay;
 
 -(SobotCallingView*)getSobotCallView;
+
+-(SobotCallingViewV6*)getSobotCallViewV6;
+
+-(void)answerClickV6;
+-(void)hangUPClickV6;
+
+
+-(void)showDragView:(UIView *)v status:(SobotDragViewType)status viewStatus:(SobotCallingViewV6Status)viewStatus frame:(CGRect)frame;
+-(void)hideDragView;
+
+#pragma mark 检查呼叫权限
++(BOOL) checkCallModule:(NSString *) key;
+
+#pragma mark 关闭键盘
+- (void)hideKeyBoard;
+
 #pragma mark -- linphone end
 
-
+// *************** V1 呼叫View使用 ********************
 -(SobotCallingView *)showCallingView:(SobotCallingType) type callNumber:(NSString *)number hiddenFlag:(int )scanFtype;
-
 /// 呼叫UI
 /// @param type 呼入Accpet/呼出CallUp
 /// @param number 当前可操作号码
@@ -81,11 +113,34 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 /// @param scanFtype 显示规则
 -(SobotCallingView *)showCallingView:(SobotCallingType) type callNumber:(NSString *)number displayNumber:(NSString *) displayNumber  hiddenFlag:(int )scanFtype autoShow:(BOOL) isAutoShow;
 
-
 -(SobotCallingView *)showCallingView:(SobotCallingType) type callNumber:(NSString *)number displayNumber:(NSString *) displayNumber  hiddenFlag:(int )scanFtype autoShow:(BOOL) isAutoShow callModel:(id)callModel;
+// *************** V1 呼叫View使用 end********************
+
+// *************** V6 呼叫View ********************
+-(SobotCallingViewV6 *)showCallingViewV6:(SobotCallingType) type callNumber:(NSString *)number hiddenFlag:(int )scanFtype statusArray:(NSMutableArray *)statusArray;
+/// 呼叫UI
+/// @param type 呼入Accpet/呼出CallUp
+/// @param number 当前可操作号码
+/// @param displayNumber 当前显示号码
+/// @param scanFtype 显示规则
+-(SobotCallingViewV6 *)showCallingViewV6:(SobotCallingType) type callNumber:(NSString *)number displayNumber:(NSString *) displayNumber  hiddenFlag:(int )scanFtype autoShow:(BOOL) isAutoShow statusArray:(NSMutableArray *)statusArray;
+
+
+-(SobotCallingViewV6 *)showCallingViewV6:(SobotCallingType) type callNumber:(NSString *)number displayNumber:(NSString *) displayNumber  hiddenFlag:(int )scanFtype autoShow:(BOOL) isAutoShow callModel:(id)callModel statusArray:(NSMutableArray *)statusArray;
+
+-(void)postLocalNotification:(NSString *)message dict:(NSDictionary *) userInfo;// 来电后台发送通知
+
+-(NSString *)getWrapUpDuration;
+// *************** V6 end********************
+
 
 /// 当前是否为v6版本
 +(BOOL) isSupportV6;
+
+
+/// 获取服务总结配置
+/// - Parameter resultBlock: 结果
++(void)getSummaryConfig:(void (^)(int code,id model,NSString *_Nullable msg)) resultBlock;
 
 /// 设置监听回调
 +(void)hangUpWithApiResult:(SobotCallUIResultBlock) resultBlock;
@@ -100,7 +155,7 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 
 
 // 获取我的任务列表数据 v1和V6的获取接口 在工具类中做处理，页面只接受返回数据和传参
-+(void)getAllTaskDetailsWithPage:(int)page result:(SobotCallUIResultBlock) resultBlock;
++(void)getAllTaskDetailsWithPage:(int)page name:(NSString*)name result:(SobotCallUIResultBlock) resultBlock;
 
 
 /// 查询座席分机号，数组
@@ -139,7 +194,7 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 
 /// 座席迁入，设置状态为非离线
 /// 2=sip,3pstn手机
-+(void)agentLoginWithCallWay:(int )callWay sip:(SobotCallSipInfo *)info status:(NSString *)agentStatus resultBlock:(SobotCallUIResultBlock) resultBlock;
++(void)agentLoginWithCallWay:(SobotCallAgentEntity *)loginInfo resultBlock:(SobotCallUIResultBlock) resultBlock;
 
 
 /// 获取账号登录模式，仅支持v1 话机绑定方案  0绑定座席  1动态绑定(仅支持手机模式)
@@ -212,12 +267,11 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 +(void)clearUserBeforeLoginSip:(NSString *)aor result:(SobotCallUIResultBlock) resultBlock;
 
 /// 获取登录用户信息
-+(SobotCallLoginInfo *) getLoginUser;
++(SobotLoginEntity *) getLoginUser;
 
 /// 查询座席的外呼路由规则
-/// @param agentID 座席id
 /// @param resultBlock resultBlock description
-+(void)postOutboundRoutesAgentId:(NSString *)agentID result:(SobotCallUIResultBlock) resultBlock;
++(void)getOutboundRoutesResult:(SobotCallUIResultBlock) resultBlock;
 
 
 /// 切换座席的外呼外显规则
@@ -225,11 +279,102 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 /// @param explicitCode 动态外显方案编码
 /// @param explicitNumber 外显号码
 /// @param resultBlock resultBlock description
-+(void)postModOutboundRoutesWithExplicitRule:(NSString *)explicitRule
++(void)updateModOutboundRoutesWithExplicitRule:(NSString *)explicitRule
                                 explicitCode:(NSString *)explicitCode
                               explicitNumber:(NSString *)explicitNumber
                                      agentId:(NSString *)agentID
                                  resultBlock:(SobotCallResultBlock)resultBlock;
+
+
+/// 查询电话区号 get
+/// @param resultBlock  resultBlock description
++(void)searchArealistResult:(SobotCallUIResultBlock) resultBlock;
+
+
+
+/// 修改电话区号
+/// @param callingCode callingCode description
+/// @param resultBlock resultBlock description
++(void)updateAreaCodeWith:(NSString*)callingCode Result:(SobotCallUIResultBlock) resultBlock;
+
+
+/// 搜索当前区号
+/// @param resultBlock resultBlock description
++(void)searchCallingCode:(SobotCallUIResultBlock) resultBlock;
+
+
++(void)agentSendDtmf:(NSString *)dtmfDigits ResultBlock:(SobotCallResultBlock)resultBlock;
+
+
+/// 查询通话中 用户信息
+/// @param callID  通话ID
+/// @param resultBlock resultBlock description
++(void)searchCallUserData:(NSString *)callID ResultBlock:(SobotCallResultBlock)resultBlock;
+
+
+/// 查询通话 关联用户
+/// @param phoneNumber phoneNumber description
+/// @param resultBlock resultBlock description
++(void)searchCallUsersWithPhone:(NSString *)phoneNumber ResultBlock:(SobotCallResultBlock)resultBlock;
+
+
+
+
+/// 注册janus
+/// 当监听到坐席状态为在线是，主动注册一次
+-(void)registerJanus;
+
+
+/// 回拨
+/// @param callid 通话ID
+/// @param sourceId sourceId description
+/// @param resultBlock resultBlock description
++(void)goCallBackWithCallId:(NSString *)callid sourceId:(NSString *)sourceId sourceType:(NSString *)sourceType ResultBlock:(SobotCallResultBlock)resultBlock;
+
+
+
+/// 查询技能组开关是否开启
+/// @param resultBlock resultBlock description
++(void)getQueueCheckinResultBlock:(SobotCallResultBlock)resultBlock;
+
+
+/// 查询是否是主通路
+/// @param callID callID description
+/// @param resultBlock resultBlock description
++(void)getCdrAgentWithCallID:(NSString *)callID ResultBlock:(SobotCallResultBlock)resultBlock;
+
+
+/// 海外版获取外呼号码的城市
+/// @param callID callID description
+/// @param resultBlock resultBlock description
++(void)getUserCityWithCallID:(NSString*)callID ResultBlock:(SobotCallResultBlock)resultBlock;
+
+
+
+/// 获取任务列表的数据
+/// @param campaignId campaignId description
+/// @param name name description
+/// @param type type description
+/// @param value value description
+/// @param currPage currPage description
+/// @param pageSize pageSize description
+/// @param resultBlock resultBlock description
++(void)getCallTaskContactsList:(NSString*)campaignId
+    CampaignContactExecuteEnum:(NSString *)name
+                           type:(int)type
+                          value:(NSString *)value
+                       currPage:(int)currPage
+                       pageSize:(int)pageSize
+                    ResultBlock:(SobotCallResultBlock)resultBlock;
+
+/// 外呼任务拨号 弹窗+ 外呼
+/// @param encryptCustomerNumber 电话号码密文
+/// @param screenNumber 显示的电话号码
+/// @param callModel 当前外呼任务的对象
+/// @param taskModel 首页外呼任务model
+-(void)showTaskCallAlterView:(NSString *)encryptCustomerNumber screenNumber:(NSString *)screenNumber model:(id)callModel  taskModel:(SobotCallTaskEntity *)taskModel;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

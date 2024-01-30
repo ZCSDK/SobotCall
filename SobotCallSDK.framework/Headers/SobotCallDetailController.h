@@ -6,7 +6,7 @@
 //
 
 #import <SobotCallSDK/SobotCallDefines.h>
-#import "SobotCallRecordEntity.h"
+#import <SobotCallLib/SobotCallRecordEntity.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SobotCallDetailController : SobotBaseController

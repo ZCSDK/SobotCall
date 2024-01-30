@@ -6,7 +6,7 @@
 //
 
 #import <SobotCallSDK/SobotCallDefines.h>
-#import "SobotCallPlanEntity.h"
+#import <SobotCallLib/SobotCallPlanEntity.h>
 NS_ASSUME_NONNULL_BEGIN
 
 //电话 计划名称 预约时间 提醒 备注

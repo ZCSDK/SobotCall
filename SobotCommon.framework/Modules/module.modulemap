@@ -1,0 +1,6 @@
+framework module SobotCommon {
+  umbrella header "SobotCommon.h"
+  export *
+
+  module * { export * }
+}

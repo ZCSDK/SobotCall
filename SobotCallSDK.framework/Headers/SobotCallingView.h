@@ -11,8 +11,14 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger,SobotCallingType) {
-    SobotCallingTypeAccpet     = 1, // 接听  挂断、一个接听
-    SobotCallingTypeCallUp     = 2, // 拨号  拨号完成，变成挂断
+    SobotCallingTypeAccpet     = 1, // 接听 界面
+    SobotCallingTypeCallUp     = 2, // 拨号  拨号完成，变成挂断 拨号界面
+    SobotCallingTypeAccpetWait = 3,//  等待接听的界面
+    SobotCallingTypeConsult    = 4,// 被咨询
+    SobotCallingTypeShifted    = 5,// 被转移
+    SobotCallingTypeToCalling  = 6,// 直接拉起外呼页面 外呼，中间不在显示拨号页面
+    SobotCallingTypeToCallBack  = 7,// 直接拉起外呼页面 不调用外呼接口，中间不在显示拨号页面  ->回拨操作
+    SobotCallingTypeToShowTel  = 8,// 手机方式接听时，显示占位页面
 };
 
 NS_ASSUME_NONNULL_BEGIN
