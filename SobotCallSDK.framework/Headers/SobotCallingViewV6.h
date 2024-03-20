@@ -29,6 +29,7 @@ typedef NS_ENUM(NSInteger,SobotCallingEventType) {
     SobotCallingEventTypeShowTel = 16,// 手机方式接听 来电显示占位页面
     SobotCallingEventTypeInternal = 17,// 内部通话
     SobotCallingEventTypeInternalAccpet = 18, // 内部通话中
+    SobotCallingEventTypeOrderReplyCallUp = 19,// 工单语音回复
 };
 
 typedef NS_ENUM(NSInteger,SobotCallingViewV6Status) {
@@ -58,6 +59,11 @@ typedef NS_ENUM(NSInteger,SobotCallingViewV6Status) {
 @property(nonatomic,copy) NSString *callID;
 
 @property(nonatomic,copy) NSString * tickName;  // 外呼任务的昵称
+
+@property(nonatomic,assign) int callFrom;// 呼叫来源，1.从工单回复页面进入，不显示底部的按钮
+@property(nonatomic,copy) NSString *orderID;// 当前通话关联的工单ID
+@property(nonatomic,copy) NSString *customId;// 工单外呼用户的ID
+@property(nonatomic,strong) UIView *tempView;// 工单外呼拉起的页面
 /**
  *  创建对象方法
  */

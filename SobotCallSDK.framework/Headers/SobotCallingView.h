@@ -36,6 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)  NSString *campaignName;
 @property (nonatomic, strong)  NSString *taskDetailId;
 
+@property (nonatomic,assign)int actionFrom;// 事件来源 1 代表工单回复拨打
+@property (nonatomic,copy) NSString *orderID;// 当前通话关联的工单ID
 
 // type =4 销毁
 @property (nonatomic, strong)  void(^SobotCallingBlock) (int type);

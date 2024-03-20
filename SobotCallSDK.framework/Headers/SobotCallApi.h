@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SobotCallApi : NSObject
 
 
-/// 获取工单SDK 版本号
+/// 获取呼叫SDK 版本号
 +(NSString *)getSobotCallSDKVersion;
 
 
@@ -71,6 +71,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)unRegister;
 
+// 跳转到登录电话条页面
++(void)startCallLogin:(NSString*)orderID result:(SobotCallResultBlock) resultBlock;
 @end
 
 NS_ASSUME_NONNULL_END

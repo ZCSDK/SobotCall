@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SobotCall"
-  s.version      = "2.2.0"
+  s.version      = "3.0.1"
   s.summary      = "sobot_call_sdk."
   s.description      = <<-DESC
  sobot_call_sdk for voip call.
@@ -24,8 +24,8 @@ DESC
   s.source       = { :git => "https://github.com/ZCSDK/SobotCall.git", :tag => s.version }
 
   s.resources = 'SobotCall.bundle'
-  s.ios.vendored_frameworks = 'SobotCallLib.framework','SobotCommon.framework','SobotCallSDK.framework','Dependent/bctoolbox.framework','Dependent/belcard.framework','Dependent/belr.framework','Dependent/linphone.framework','Dependent/linphonetester.framework','Dependent/mediastreamer2.framework','Dependent/msamr.framework','Dependent/mscodec2.framework','Dependent/msopenh264.framework','Dependent/mssilk.framework','Dependent/mswebrtc.framework','Dependent/msx264.framework','Dependent/ortp.framework','Dependent/WebRTC.framework'
+  s.ios.vendored_frameworks = 'SobotCallLib.framework','SobotCallSDK.framework','Dependent/bctoolbox.framework','Dependent/belcard.framework','Dependent/belr.framework','Dependent/linphone.framework','Dependent/linphonetester.framework','Dependent/mediastreamer2.framework','Dependent/msamr.framework','Dependent/mscodec2.framework','Dependent/msopenh264.framework','Dependent/mssilk.framework','Dependent/mswebrtc.framework','Dependent/msx264.framework','Dependent/ortp.framework','Dependent/WebRTC.framework'
 
-  #s.dependency 'SobotCommon','2.0.1'
+  s.dependency 'SobotCommon','2.1.2'
 
 end

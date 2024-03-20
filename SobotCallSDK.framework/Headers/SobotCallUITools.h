@@ -67,6 +67,7 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 +(SobotCallUITools *)shareSobotCallUITools;
 -(void)registeSip:(SobotCallSipInfo *)info resultBlock:(SobotCallUISipResultBlock) resultBlock;
 -(void)unRegister;
+-(void)checkJanusSocketUrl;
 -(void)hangUpWithApi;
 -(void)answer;
 -(void)answerWithApi;
@@ -89,6 +90,8 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 
 -(SobotCallingViewV6*)getSobotCallViewV6;
 
+-(NSString *)getV6AgentStatus;
+
 -(void)answerClickV6;
 -(void)hangUPClickV6;
 
@@ -103,6 +106,9 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 - (void)hideKeyBoard;
 
 #pragma mark -- linphone end
+
+// *************** 工单回复使用 ******************
+-(UIView *)showCallingView:(SobotCallingType) type callNumber:(NSString *)number displayNumber:(NSString *) displayNumber hiddenFlag:(int )scanFtype actionFrom:(int)actionFrom orderId:(NSString *)orderId userNick:(NSString *)userNick customId:(NSString *)customId;
 
 // *************** V1 呼叫View使用 ********************
 -(SobotCallingView *)showCallingView:(SobotCallingType) type callNumber:(NSString *)number hiddenFlag:(int )scanFtype;
@@ -131,6 +137,8 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 -(void)postLocalNotification:(NSString *)message dict:(NSDictionary *) userInfo;// 来电后台发送通知
 
 -(NSString *)getWrapUpDuration;
+
+-(BOOL)getIsCallLogin;
 // *************** V6 end********************
 
 
@@ -147,7 +155,7 @@ typedef void(^SobotCallUISipResultBlock)(SobotCallUIToolsSipType type ,NSString 
 
 
 
-+(void)callOutWithApi:(NSString *) number group:(NSString *)groupId callWay:(int ) callway obj:(nonnull id)taskObj  hiddenNumber:(NSString *)hiddenNumber isAddUserData:(BOOL)isAdd reult:(SobotCallUIResultBlock) resultBlock;
++(void)callOutWithApi:(NSString *) number group:(NSString *)groupId callWay:(int ) callway obj:(nonnull id)taskObj  hiddenNumber:(NSString *)hiddenNumber isAddUserData:(BOOL)isAdd customDict:(NSDictionary *)customDict reult:(SobotCallUIResultBlock) resultBlock;
 
 // 首次进入，设置座席状态
 // 判断版本v1/v6，获取sip，获取座席状态,obj 为agentStatusEntity对象

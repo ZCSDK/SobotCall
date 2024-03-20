@@ -70,6 +70,7 @@ typedef void (^OnMessageError)(int code,NSDictionary *dict);
           completionHandler:(nullable void (^)(SobotJanusHandle *handle))completionHandler;
 // 更新
 -(void)updateJanus;
+-(void)goOpen;
 -(void)sendClaimWith:(NSNumber *)sessionId;
 -(void)disconnect;
 

@@ -48,6 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)jcConnectClose;
 -(void)toUpdate;
 
+-(void)checkSocketUrl;
+
 // janus 重连ice
 -(void)janusIceReCreate;
 @end
