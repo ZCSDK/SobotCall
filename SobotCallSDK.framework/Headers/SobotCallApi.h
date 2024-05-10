@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param resultBlock 回调结果
 +(void)outSobotUser:(SobotCallResultBlock) resultBlock;
 
-/// 登录
+/// 登录，更多登录方式参加[SobotCallCache doLogin:...]
 /// @param account 账号
 /// @param loginPwd 密码
 /// @param resultBlock 回调结果
@@ -44,10 +44,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 登录（使用token）
 /// @param account 账号
-/// @param loginPwd 密码
-/// @param token token
+/// @param token token（公司token，设置token后不要设置loginPwd）
 /// @param resultBlock 回调结果
-+(void)loginUser:(NSString *)account password:(NSString * )loginPwd  token:(NSString *) token  result:(SobotCallResultBlock) resultBlock;
++(void)loginUser:(NSString *)account  token:(NSString *) token  result:(SobotCallResultBlock) resultBlock;
+
+
+/// 使用AppID的方式登录
+/// @param account  账号
+/// @param app_key appkey
+/// @param appid addid
+/// @param resultBlock 回调
++(void)loginUser:(NSString *)account appkey:(NSString *)app_key appid:(NSString *) appid result:(SobotCallResultBlock) resultBlock;
+
 
 /// 设置是否 Debug模式，默认为NO，不显示日志
 /// @param isShowDebug  YES or NO
@@ -61,9 +69,22 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param resultBlock 回调结果
 +(void)startWithAcount:(NSString *)account password:(NSString *)loginPwd viewController:(UIViewController *)vc result:(SobotCallResultBlock) resultBlock;
 
-/// 添加启动页面
-/// token 非accessToken,账号登录返回的地址，内部自动判断新旧版本
-+(void)startWithToken:(NSString *) token viewController:(UIViewController *) vc result:(SobotCallResultBlock) resultBlock;
+
+/// 启动呼叫页面
+/// @param account 坐席账号
+/// @param token 公司token，根据appkey和appid获取的单点登录的token
+/// @param vc 启动的vc
+/// @param resultBlock 结果
++(void)startWithAcount:(NSString *)account token:(NSString *) token  viewController:(UIViewController *)vc  result:(SobotCallResultBlock) resultBlock;
+
+
+/// 启动呼叫页面方式二
+/// @param account  账号
+/// @param app_key AppKey
+/// @param appid appid
+/// @param vc 启动VC
+/// @param resultBlock 回调结果
++(void)startWithAcount:(NSString *)account appkey:(NSString *)app_key appid:(NSString *) appid viewController:(UIViewController *)vc  result:(SobotCallResultBlock) resultBlock;
 
 ///  设置SobotCall状态监听
 ///   status 外呼的状态

@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) SobotCallCacheEntity *sobotCallConfig;
 
 // 座席呼叫类型信息
-@property (nonatomic,strong) SobotCallAgentEntity *agentInfo;
+@property (nonatomic,strong)SobotCallAgentEntity *_Nullable agentInfo;
 
 @property (nonatomic,assign)BOOL callPageActive;// 呼叫是否前台
 
@@ -65,7 +65,30 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy) SobotOrderPageLoadBlock pageLoadBlock;
 
 
--(void)doLogin:(NSString * _Nullable) loginAcount pwd:(NSString *  _Nullable) loginPwd token:(NSString *  _Nullable) token result:(void(^)(NSInteger code,NSDictionary * _Nullable dict,NSString * _Nullable msg)) resultBlock;
+
+/// 通过坐席账号登录
+/// - Parameters:
+///   - loginAcount: 坐席账号
+///   - loginPwd: 坐席密码
+///   - resultBlock: 结果
+-(void)doLogin:(NSString * _Nullable) loginAcount pwd:(NSString *  _Nullable) loginPwd result:(void(^)(NSInteger code,NSDictionary * _Nullable dict,NSString * _Nullable msg)) resultBlock;
+
+
+/// 通过公司token登录
+/// - Parameters:
+///   - loginAcount: 坐席账号
+///   - token: 公司token
+///   - resultBlock: 结果
+-(void)doLogin:(NSString * _Nonnull) loginAcount token:(NSString *  _Nonnull) token result:(void(^)(NSInteger code,NSDictionary * _Nullable dict,NSString * _Nullable msg)) resultBlock;
+
+
+/// appkey和appid方式登录
+/// - Parameters:
+///   - loginAcount: 坐席账号
+///   - app_key: 公司app_key
+///   - appid: appid
+///   - resultBlock: 结果
+-(void)doLogin:(NSString * _Nonnull) loginAcount appkey:(NSString *  _Nullable) app_key appid:(NSString *) appid result:(void(^)(NSInteger code,NSDictionary * _Nullable dict,NSString * _Nullable msg)) resultBlock;
 
 
 -(void)outLoginStatus:(void(^)(int code,NSDictionary *result)) resultBlcok;

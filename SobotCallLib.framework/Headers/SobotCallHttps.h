@@ -26,12 +26,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SobotCallHttps : NSObject
 
 +(void)get:(NSString *) stringURL
+    sdkVersion:(NSString *) sdkVersion
      start:(StartCallBlock) StartCallBlock
     finish:(FinishCallBlock) finishBlock
   complete:(CompleteCallBlock) CompleteCallBlock
       fail:(FailCallBlock) failBlock;
 
 +(void)get:(NSString *)stringURL
+sdkVersion:(NSString *) sdkVersion
      start:(StartCallBlock)StartCallBlock
     finish:(FinishCallBlock)finishBlock
   complete:(CompleteCallBlock)CompleteCallBlock
@@ -42,6 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)post:(NSString *) stringURL
       param:(NSDictionary *) dict
     timeOut:(CGFloat) timeOut
+ sdkVersion:(NSString *) sdkVersion
       start:(StartCallBlock) StartCallBlock
      finish:(FinishCallBlock) finishBlock
    complete:(CompleteCallBlock) CompleteCallBlock
@@ -49,6 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)post:(NSString *)stringURL
       param:(NSDictionary *)dict
+ sdkVersion:(NSString *) sdkVersion
       start:(StartCallBlock)StartCallBlock
      finish:(FinishCallBlock)finishBlock
    complete:(CompleteCallBlock)CompleteCallBlock
@@ -58,6 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)post:(NSString *)stringURL
       param:(NSDictionary *)dict
     timeOut:(CGFloat) timeOut
+ sdkVersion:(NSString *) sdkVersion
       start:(StartCallBlock)StartCallBlock
      finish:(FinishCallBlock)finishBlock
    complete:(CompleteCallBlock)CompleteCallBlock
@@ -90,6 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
       param:(NSDictionary *)dict
     timeOut:(CGFloat) timeOut
        mode:(NSInteger ) mode
+ sdkVersion:(NSString *) sdkVersion
       start:(StartCallBlock)StartCallBlock
      finish:(FinishCallBlock)finishBlock
    complete:(CompleteCallBlock)CompleteCallBlock
@@ -102,6 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
     timeOut:(CGFloat) timeOut
        mode:(NSInteger ) mode
      method:(NSString *)method
+sdkVersion:(NSString *) sdkVersion
       start:(StartCallBlock)StartCallBlock
      finish:(FinishCallBlock)finishBlock
    complete:(CompleteCallBlock)CompleteCallBlock

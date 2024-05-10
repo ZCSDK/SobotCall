@@ -46,6 +46,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,strong) NSString * fieldType;
 
+@property (nonatomic,strong) NSString *fieldText;// 下拉列表和级联使用
+
 @property (nonatomic,strong) NSString * fieldVariable;
 
 @property (nonatomic,strong) NSString * fillFlag;
@@ -62,8 +64,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,strong) NSString * workSortNo;
 
-
-
+//// 注意这里的数据调用接口时传入的规则 呼叫  （服务总结传datavalue 任务总结传dataid 级联都传datavalue 单选复选传dataid）
+//@property (nonatomic,strong) NSString *dataid;// 任务总结传 使用  单选复选传
+//@property (nonatomic,strong) NSString *datavalue;// 服务总结传 级联都传
 
 @property (nonatomic,strong) NSMutableArray * cusFieldDataInfoListArr;// 多选，下拉列表字段存储
 
@@ -114,6 +117,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @property (nonatomic,assign) int authStatus;// 1可读写 2可读 3不可见
+
+@property (nonatomic,assign) int delFields;// 1，已删除字段
+@property (nonatomic,assign) int delOptions;// 1，已删除选项
 
 -(id)initWithMyDict:(NSDictionary *)dict ; // 工单model过来的数据包一层，分类接口 包两层。
 

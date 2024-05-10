@@ -37,7 +37,11 @@ typedef void(^SobotCallLibClientListenerBlock)(SobotCallLibClientListener state,
 
 @interface SobotCallLibClient : NSObject
 
+// 呼叫页面，有链接点击后，可以监听链接点击事件
+@property(nonatomic,strong) NSString * _Nullable sdkVersion;
+
 +(NSString *)sobotGetCallLibVersion;
+-(NSString *)sobotGetSDKVersion;
 
 +(SobotCallLibClient *)getSobotCallClient;
 
@@ -47,7 +51,7 @@ typedef void(^SobotCallLibClientListenerBlock)(SobotCallLibClientListener state,
 @property(nonatomic,copy) SobotCallLibClientListenerBlock _Nullable sobotCallLibListenerBlock;
 
 // 设置国际化/资源等本地化配置
--(void)initSDKWithConfig:(SobotCallCacheEntity * _Nullable)config bundleName:(NSString * _Nullable ) bundleName;
+-(void)initSDKWithConfig:(SobotCallCacheEntity * _Nullable)config bundleName:(NSString * _Nullable ) bundleName version:(NSString *) sdkVersion;
 
 // 当前登录状态
 +(BOOL) isLogin;

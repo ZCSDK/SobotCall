@@ -1907,3 +1907,9 @@
 "900007" = "Blank token info. Get a new one!";
 "306014" = "Agent not ready at DND status, outbound not allowed";
 
+// 3.0.2版本新增
+"字段因管理员停用或删除导致失效"="Field invalid due to disabling or deletion by admin";
+"选项因管理员停用或删除导致失效"="Option invalid due to disabling or deletion by admin";
+"字段或选项因停用删除导致失效。"="Field or option invalid due to disabling or deletion.";
+"编辑时失效内容会被移除，是否继续?"="Invalid content during editing will be removed. Whether to continue?";
+"继续" = "Continue";
