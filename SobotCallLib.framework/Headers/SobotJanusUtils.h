@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 // 正在重连janus,预防重复操作
 @property(nonatomic,assign) BOOL isReJanus;
 
+@property(nonatomic,assign) BOOL isAnswerUp;// 当前通话是否已经接听
+//@property(nonatomic,strong) NSDictionary *offerJsep;
 // 网络发生变化，此时要重新发送update
 @property(nonatomic,assign) BOOL isNetWorkChanged;
 
@@ -52,6 +54,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 // janus 重连ice
 -(void)janusIceReCreate;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

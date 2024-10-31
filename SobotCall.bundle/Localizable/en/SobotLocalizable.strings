@@ -1913,3 +1913,7 @@
 "字段或选项因停用删除导致失效。"="Field or option invalid due to disabling or deletion.";
 "编辑时失效内容会被移除，是否继续?"="Invalid content during editing will be removed. Whether to continue?";
 "继续" = "Continue";
+
+
+"登录失败，请重试" = "Login failed, please try again";
+

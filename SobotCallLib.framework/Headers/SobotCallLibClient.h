@@ -56,6 +56,11 @@ typedef void(^SobotCallLibClientListenerBlock)(SobotCallLibClientListener state,
 // 当前登录状态
 +(BOOL) isLogin;
 
+
+/// 更新当前翻译
+/// - Parameter language: 更新的语语言，如果为空默认为登录语言
++(void)checkUpdateLanguage:(NSString * _Nullable) language;
+
 // 设置调试模式
 +(void)showDebug:(BOOL) showDebug;
 

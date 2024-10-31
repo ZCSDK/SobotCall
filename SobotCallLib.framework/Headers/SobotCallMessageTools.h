@@ -67,6 +67,8 @@ typedef BOOL (^SobotCallScribeMessage)(NSString * _Nullable common,NSDictionary 
 // 重连
 -(void)reconnect;
 -(void)networkReconnect;
+// 登录座席时，重新链接数据
+-(void)networkLoginReconnect;
 @end
 
 NS_ASSUME_NONNULL_END
